@@ -23,9 +23,10 @@ def sha256_hash_str(to_hash: str) -> str:
 
 
 def find_password(start: int, end: int) -> None:
+    targets_set = set(PASSWORDS_TO_BRUTE_FORCE)
     for number in range(start, end + 1):
-        if sha256_hash_str(f"{number:08d}") in PASSWORDS_TO_BRUTE_FORCE:
-            print(f"Found: {number}")
+        if sha256_hash_str(f"{number:08d}") in targets_set:
+            print(f"Found: {number:08d}")
 
 
 def brute_force_password(num: int) -> None:
